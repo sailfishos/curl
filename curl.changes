@@ -1,0 +1,34 @@
+* Thu May 05 2011 Anas Nashif <anas.nashif@intel.com> - 7.21.6
+- Update to 7.21.6
+- Remove useless, always installed docs
+- Cleanup spec file and use spectacle as intended
+
+* Tue Mar 01 2011 Marko Saukko <marko.saukko@cybercom.com> - 7.21.2
+- Remove curl dependency from libcurl.
+
+* Mon Nov 15 2010 Martin Xu <martin.xu@intel.com> - 7.21.2
+- upgrade to 7.21.2 to fix BMC #9292
+
+* Wed May 05 2010 Anas Nashif <anas.nashif@intel.com> - 7.20.0
+- Fixed spec file and BuildRequires
+
+* Fri Apr 23 2010 Martin Xu <martin.xu@intel.com> - 7.20.0
+- upgrade to 7.20.0
+- and uses spectacle
+
+* Thu Apr 15 2010 Marko Saukko <marko.saukko@gmail.com> 7.19.7
+- Added support for SSL.
+
+* Fri Dec 04 2009 Jian-feng Ding <jian-feng.ding@intel.com> 7.19.7
+- Upgrade to version 7.19.7
+
+* Fri Aug 14 2009 Passion.Zhao <passion.zhao@intel.com> - 7.19.6-1
+- Upgrade to 7.19.6 to address CVE-2009-2417 
+  (http://curl.haxx.se/docs/adv_20090812.html)
+- Remove upstreamed patch: curl-7.17.1-badsocket.patch
+
+* Wed Apr 01 2009 Ding Jian-feng <jian-feng.ding@intel.com> 7.19.4
+- Upgrade to version 7.19.4
+
+* Tue Dec 23 2008 Arjan van de Ven <arjan@linux.intel.com> 7.19.2
+- Upgrade to version 7.19.2 -- bugfixes

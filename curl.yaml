@@ -1,0 +1,59 @@
+Name: curl
+Summary: A utility for getting files from remote servers (FTP, HTTP, and others)
+Version: 7.21.6
+Release: 1
+Group: Applications/Internet
+License: MIT
+URL: http://curl.haxx.se/
+Sources:
+    - http://curl.haxx.se/download/%{name}-%{version}.tar.bz2
+    - http://curl.haxx.se/download/%{name}-%{version}.tar.bz2.asc
+Patches:
+    - curl-7.15.3-multilib.patch
+    - curl-7.18.2-nssproxy.patch
+Description: |
+    cURL is a tool for getting files from HTTP, FTP, FILE, LDAP, LDAPS,
+    DICT, TELNET and TFTP servers, using any of the supported protocols.
+    cURL is designed to work without user interaction or any kind of
+    interactivity. cURL offers many useful capabilities, like proxy support,
+    user authentication, FTP upload, HTTP post, and file transfer resume.
+PkgConfigBR:
+    - openssl
+    - libidn
+    - nss
+    - zlib
+Provides:
+    - webclient
+ConfigOptions:
+ - --with-nss
+ - --enable-ipv6
+ - --with-ca-bundle=%{_sysconfdir}/pki/tls/certs/ca-bundle.crt
+ - --with-libidn
+SubPackages:
+    - Name: libcurl
+      AsWholeName: yes
+      Summary: A library for getting files from web servers
+      Group: System/Libraries
+      AutoDepend: false
+      Description: |
+          This package provides a way for applications to use FTP, HTTP, Gopher and
+          other servers for getting files.
+
+    - Name: libcurl-devel
+      AsWholeName: yes
+      Summary: Files needed for building applications with libcurl
+      Group: Development/Libraries
+      AutoDepend: false
+      Description: |
+          cURL is a tool for getting files from FTP, HTTP, Gopher, Telnet, and
+          Dict servers, using any of the supported protocols. The libcurl-devel
+          package includes files needed for developing applications which can
+          use cURL's capabilities internally.
+      Requires:
+          - libcurl = %{version}-%{release}
+          - libidn-devel
+      Provides:
+          - curl-devel = %{version}-%{release}
+      Obsoletes:
+          - curl-devel < %{version}-%{release}
+
