@@ -7,15 +7,15 @@
 
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.22.0
+Version:    7.25.0
 Release:    1
 Group:      Applications/Internet
 License:    MIT
 URL:        http://curl.haxx.se/
-Source0:    http://curl.haxx.se/download/%{name}-%{version}.tar.bz2
-Source1:    http://curl.haxx.se/download/%{name}-%{version}.tar.bz2.asc
+Source0:    http://curl.haxx.se/download/%{name}-%{version}.tar.lzma
+Source1:    http://curl.haxx.se/download/%{name}-%{version}.tar.lzma.asc
 Source100:  curl.yaml
-Patch0:     curl-7.15.3-multilib.patch
+Patch0:     0101-curl-7.25.0-multilib.patch
 Patch1:     curl-7.18.2-nssproxy.patch
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(libidn)
@@ -63,7 +63,7 @@ use cURL's capabilities internally.
 %prep
 %setup -q -n %{name}-%{version}
 
-# curl-7.15.3-multilib.patch
+# 0101-curl-7.25.0-multilib.patch
 %patch0 -p1
 # curl-7.18.2-nssproxy.patch
 %patch1 -p1
