@@ -77,7 +77,7 @@ use cURL's capabilities internally.
 %configure --disable-static \
     --with-nss \
     --enable-ipv6 \
-    --with-ca-bundle=%{_sysconfdir}/pki/tls/certs/ca-bundle.crt \
+    --with-ca-path=%{_sysconfdir}/ssl/certs/ \
     --with-libidn
 
 make %{?jobs:-j%jobs}

@@ -1,3 +1,6 @@
+* Wed Aug  8 2012 Islam Amer <islam.amer@jollamobile.com> -7.25.0
+- Use ca-path instead of ca-bundle, fixes MER#490
+
 * Thu Mar 05 2012 Marko Saukko <sage@merproject.org> - 7.25.0
 - Fixes MER#248: CVE-2012-0036 curl URL sanitization vulnerability
 
