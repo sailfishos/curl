@@ -1,6 +1,6 @@
 Name: curl
 Summary: A utility for getting files from remote servers (FTP, HTTP, and others)
-Version: 7.25.0
+Version: 7.26.0
 Release: 1
 Group: Applications/Internet
 License: MIT
@@ -10,7 +10,10 @@ Sources:
     - http://curl.haxx.se/download/%{name}-%{version}.tar.lzma.asc
 Patches:
     - 0101-curl-7.25.0-multilib.patch
-    - curl-7.18.2-nssproxy.patch
+    - 0101-curl-7.25.0-multilib.patch
+    - 05_curl-sasl-CVE-2013-0249.patch
+    - 06_curl-tailmatch-CVE-2013-1944.patch
+    - 07_test1218-another-cookie-tailmatch-test.patch
 Description: |
     cURL is a tool for getting files from HTTP, FTP, FILE, LDAP, LDAPS,
     DICT, TELNET and TFTP servers, using any of the supported protocols.

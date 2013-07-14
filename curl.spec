@@ -7,7 +7,7 @@
 
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.25.0
+Version:    7.26.0
 Release:    1
 Group:      Applications/Internet
 License:    MIT
@@ -16,7 +16,9 @@ Source0:    http://curl.haxx.se/download/%{name}-%{version}.tar.lzma
 Source1:    http://curl.haxx.se/download/%{name}-%{version}.tar.lzma.asc
 Source100:  curl.yaml
 Patch0:     0101-curl-7.25.0-multilib.patch
-Patch1:     curl-7.18.2-nssproxy.patch
+Patch1:     05_curl-sasl-CVE-2013-0249.patch
+Patch2:     06_curl-tailmatch-CVE-2013-1944.patch
+Patch3:     07_test1218-another-cookie-tailmatch-test.patch
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(libidn)
 BuildRequires:  pkgconfig(nss)
@@ -65,8 +67,12 @@ use cURL's capabilities internally.
 
 # 0101-curl-7.25.0-multilib.patch
 %patch0 -p1
-# curl-7.18.2-nssproxy.patch
+# 05_curl-sasl-CVE-2013-0249.patch
 %patch1 -p1
+# 06_curl-tailmatch-CVE-2013-1944.patch
+%patch2 -p1
+# 07_test1218-another-cookie-tailmatch-test.patch
+%patch3 -p1
 # >> setup
 # << setup
 
@@ -117,6 +123,7 @@ find ${RPM_BUILD_ROOT} -name ca-bundle.crt -exec rm -f '{}' \;
 %doc COPYING
 %{_bindir}/curl
 %doc %{_mandir}/man1/curl.1*
+%doc %{_mandir}/man1/mk-ca-bundle.1.gz
 # << files
 
 
