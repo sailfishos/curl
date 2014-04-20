@@ -1,3 +1,6 @@
+* Sun Jul  14 2013 Davide Bettio <davide.bettio@ispirata.com> - 7.26.0
+- Update to 7.26.0
+
 * Wed Aug  8 2012 Islam Amer <islam.amer@jollamobile.com> -7.25.0
 - Use ca-path instead of ca-bundle, fixes MER#490
 
