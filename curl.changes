@@ -1,3 +1,14 @@
+* Sun Apr 20 2014 Carsten Munk <carsten.munk@jolla.com> - 7.36.0
+- Upgrade to 7.36.0, unbreak package
+
+* Wed Apr 9 2014 Davide Bettio <davide.bettio@ispirata.com> - 7.35.0
+- Disable gopher protocol.
+
+* Wed Apr  9 2014 Davide Bettio <davide.bettio@ispirata.com> - 7.35.0
+- Updated to 7.35.0
+- Added patch for CVE-2014-0138
+- Added patch for CVE-2014-0139
+
 * Sun Jul  14 2013 Davide Bettio <davide.bettio@ispirata.com> - 7.26.0
 - Update to 7.26.0
 
