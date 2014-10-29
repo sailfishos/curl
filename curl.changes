@@ -1,3 +1,6 @@
+* Wed Oct 29 2014 Pasi Sjöholm <pasi.sjoholm@jollamobile.com> - 7.36.0-2
+- Fix CVE-2014-3613 and CVE-2014-3620
+
 * Sun Apr 20 2014 Carsten Munk <carsten.munk@jolla.com> - 7.36.0
 - Upgrade to 7.36.0, unbreak package
 
