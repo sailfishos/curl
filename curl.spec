@@ -1,7 +1,7 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
 Version:    7.36.0
-Release:    2
+Release:    3
 Group:      Applications/Internet
 License:    MIT
 URL:        http://curl.haxx.se/
@@ -18,6 +18,7 @@ Patch7:     0107-curl-7.21.4-libidn-valgrind.patch
 Patch8:     0108-curl-7.32.0-utf8.patch
 Patch9:     CVE-2014-3613.patch
 Patch10:    CVE-2014-3620.patch
+Patch11:    CVE-2014-3707.patch
 
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(libidn)
@@ -76,6 +77,7 @@ use cURL's capabilities internally.
 %patch8 -p1
 %patch9 -p1
 %patch10 -p1
+%patch11 -p1
 
 %build
 
