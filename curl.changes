@@ -1,3 +1,7 @@
+* Thu Apr 23 2015 Pasi Sjöholm <pasi.sjoholm@jollamobile.com> - 7.42.0
+- Update to 7.42.0. MER#918
+- Fixes CVE-2015-3143, CVE-2015-3148, CVE-2015-3145, CVE-2015-3144
+
 * Mon Jan 12 2015 John Brooks <john.brooks@jolla.com> - 7.40.0
 - Update to 7.40.0
 
