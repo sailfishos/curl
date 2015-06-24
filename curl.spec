@@ -13,7 +13,6 @@ Patch4:     0103-curl-7.36.0-metalink.patch
 Patch5:     0104-curl-7.19.7-localhost6.patch
 Patch6:     0106-curl-7.36.0-libssh2-valgrind.patch
 Patch7:     0107-curl-7.21.4-libidn-valgrind.patch
-Patch8:     0108-curl-7.32.0-utf8.patch
 
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(libidn)
@@ -67,7 +66,6 @@ use cURL's capabilities internally.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-%patch8 -p1
 
 %build
 
