@@ -1,6 +1,6 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.43.0
+Version:    7.47.1
 Release:    1
 Group:      Applications/Internet
 License:    MIT
@@ -105,7 +105,7 @@ find ${RPM_BUILD_ROOT} -name ca-bundle.crt -exec rm -f '{}' \;
 %doc COPYING
 %{_bindir}/curl
 %doc %{_mandir}/man1/curl.1*
-
+%{_datadir}/zsh/site-functions
 
 %files -n libcurl
 %defattr(-,root,root,-)
