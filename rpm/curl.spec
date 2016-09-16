@@ -6,7 +6,6 @@ Group:      Applications/Internet
 License:    MIT
 URL:        http://curl.haxx.se/
 Source0:    http://curl.haxx.se/download/%{name}-%{version}.tar.gz
-Source1:    http://curl.haxx.se/download/%{name}-%{version}.tar.gz.asc
 Patch2:     0101-curl-7.32.0-multilib.patch
 Patch5:     0104-curl-7.19.7-localhost6.patch
 Patch6:     0106-curl-7.36.0-libssh2-valgrind.patch
