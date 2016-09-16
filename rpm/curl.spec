@@ -66,7 +66,7 @@ use cURL's capabilities internally.
 %patch7 -p1
 
 %build
-
+./buildconf
 %configure --disable-static \
     --with-nss \
     --enable-ipv6 \
