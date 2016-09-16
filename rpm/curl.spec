@@ -58,7 +58,7 @@ use cURL's capabilities internally.
 
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version}/%{name}
 
 %patch2 -p1
 %patch3 -p1
