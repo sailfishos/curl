@@ -99,7 +99,6 @@ find ${RPM_BUILD_ROOT} -name ca-bundle.crt -exec rm -f '{}' \;
 %defattr(-,root,root,-)
 %doc COPYING
 %{_bindir}/curl
-%doc %{_mandir}/man1/curl.1*
 
 %files -n libcurl
 %defattr(-,root,root,-)
@@ -113,7 +112,7 @@ find ${RPM_BUILD_ROOT} -name ca-bundle.crt -exec rm -f '{}' \;
 %{_includedir}/curl
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
-%doc %{_mandir}/man1/curl-config.1*
+%doc %{_mandir}/man1/*
 %doc %{_mandir}/man3/*
 %{_datadir}/aclocal/libcurl.m4
 
