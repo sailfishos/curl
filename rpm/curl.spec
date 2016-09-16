@@ -8,7 +8,6 @@ URL:        http://curl.haxx.se/
 Source0:    http://curl.haxx.se/download/%{name}-%{version}.tar.gz
 Source1:    http://curl.haxx.se/download/%{name}-%{version}.tar.gz.asc
 Patch2:     0101-curl-7.32.0-multilib.patch
-Patch4:     0103-curl-7.36.0-metalink.patch
 Patch5:     0104-curl-7.19.7-localhost6.patch
 Patch6:     0106-curl-7.36.0-libssh2-valgrind.patch
 Patch7:     0107-curl-7.21.4-libidn-valgrind.patch
@@ -60,7 +59,6 @@ use cURL's capabilities internally.
 %setup -q -n %{name}-%{version}/%{name}
 
 %patch2 -p1
-%patch4 -p1
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
