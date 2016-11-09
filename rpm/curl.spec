@@ -1,6 +1,6 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.50.3
+Version:    7.51.0
 Release:    1
 Group:      Applications/Internet
 License:    MIT
@@ -15,6 +15,7 @@ BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(libidn)
 BuildRequires:  pkgconfig(nss)
 BuildRequires:  pkgconfig(zlib)
+BuildRequires:  libtool
 Provides:   webclient
 
 
