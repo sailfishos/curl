@@ -1,7 +1,34 @@
+From c3742688208527fa8a790355924df82ce8f2fc19 Mon Sep 17 00:00:00 2001
+From: Lauri Kopo <lauri.kopo@jolla.com>
+Date: Mon, 27 Apr 2020 10:08:08 +0300
+Subject: [PATCH] 0104-curl-7.19.7-localhost6.patch
+
+
 diff --git a/tests/data/test1083 b/tests/data/test1083
-index e441278..b0958b6 100644
+index 1b1db0539..0b5b573a0 100644
 --- a/tests/data/test1083
 +++ b/tests/data/test1083
+@@ -12,13 +12,13 @@ IPv6
+ # Server-side
+ <reply>
+ <data>
+-HTTP/1.1 200 OK
+-Date: Mon, 28 Jul 2008 14:49:00 GMT
+-Server: test-server/fake
+-Content-Length: 6
+-Connection: close
+-Content-Type: text/plain
+-
++HTTP/1.1 200 OK
++Date: Mon, 28 Jul 2008 14:49:00 GMT
++Server: test-server/fake
++Content-Length: 6
++Connection: close
++Content-Type: text/plain
++
+ -foo-
+ </data>
+ </reply>
 @@ -33,13 +33,13 @@ ipv6
  http-ipv6
  </server>
@@ -14,13 +41,28 @@ index e441278..b0958b6 100644
 +-g "http://%HOST6IP:%HTTP6PORT/1083" --interface localhost6
  </command>
  <precheck>
--perl -e "if ('%CLIENT6IP' ne '[::1]') {print 'Test requires default test server host address';} else {exec './server/resolve --ipv6 ip6-localhost'; print 'Cannot run precheck resolve';}"
-+perl -e "if ('%CLIENT6IP' ne '[::1]') {print 'Test requires default test server host address';} else {exec './server/resolve --ipv6 localhost6'; print 'Cannot run precheck resolve';}"
+-perl -e "if ('%CLIENT6IP' ne '[::1]') {print 'Test requires default test client host address';} else {exec './server/resolve --ipv6 ip6-localhost'; print 'Cannot run precheck resolve';}"
++perl -e "if ('%CLIENT6IP' ne '[::1]') {print 'Test requires default test client host address';} else {exec './server/resolve --ipv6 localhost6'; print 'Cannot run precheck resolve';}"
  </precheck>
  </client>
  
+@@ -50,10 +50,10 @@ perl -e "if ('%CLIENT6IP' ne '[::1]') {print 'Test requires default test client
+ ^User-Agent:.*
+ </strip>
+ <protocol>
+-GET /1083 HTTP/1.1
+-Host: %HOST6IP:%HTTP6PORT
+-Accept: */*
+-
++GET /1083 HTTP/1.1
++Host: %HOST6IP:%HTTP6PORT
++Accept: */*
++
+ </protocol>
+ </verify>
+ </testcase>
 diff --git a/tests/data/test241 b/tests/data/test241
-index 46eae1f..4e1632c 100644
+index 46eae1f72..20b6b6f83 100644
 --- a/tests/data/test241
 +++ b/tests/data/test241
 @@ -30,13 +30,13 @@ ipv6
@@ -40,12 +82,21 @@ index 46eae1f..4e1632c 100644
  </precheck>
  </client>
  
-@@ -48,7 +48,7 @@ HTTP-IPv6 GET (using ip6-localhost)
+@@ -47,10 +47,10 @@ HTTP-IPv6 GET (using ip6-localhost)
+ ^User-Agent:
  </strip>
  <protocol>
- GET /241 HTTP/1.1
+-GET /241 HTTP/1.1
 -Host: ip6-localhost:%HTTP6PORT
+-Accept: */*
+-
++GET /241 HTTP/1.1
 +Host: localhost6:%HTTP6PORT
- Accept: */*
- 
++Accept: */*
++
  </protocol>
+ </verify>
+ </testcase>
+-- 
+2.25.4
+
