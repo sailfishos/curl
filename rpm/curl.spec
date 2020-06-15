@@ -1,6 +1,6 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.69.1
+Version:    7.70.0
 Release:    1
 License:    MIT
 URL:        http://curl.haxx.se/
@@ -12,6 +12,7 @@ Patch7:     0107-curl-7.21.4-libidn-valgrind.patch
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(libpsl)
+BuildRequires:  pkgconfig(libnghttp2)
 BuildRequires:  libtool
 Provides:   webclient
 
@@ -52,7 +53,8 @@ use cURL's capabilities internally.
 %configure --disable-static \
     --enable-ipv6 \
     --with-libpsl \
-    --disable-gopher
+    --disable-gopher \
+    --with-nghttp2
 
 make %{?_smp_mflags}
 
