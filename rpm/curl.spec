@@ -11,9 +11,6 @@ Patch101:   0101-curl-7.32.0-multilib.patch
 Patch104:   0104-curl-7.19.7-localhost6.patch
 # prevent valgrind from reporting false positives on x86_64
 Patch105:   0105-curl-7.63.0-lib1560-valgrind.patch
-# 0107-curl-7.21.4-libidn-valgrind.patch was removed in f25 (curl 7.51.0)
-# work around valgrind bug (#678518)
-Patch107:   0107-curl-7.21.4-libidn-valgrind.patch
 
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(zlib)
