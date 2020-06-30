@@ -1,13 +1,16 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.70.0
+Version:    7.71.0
 Release:    1
 License:    MIT
-URL:        http://curl.haxx.se/
+URL:        https://curl.haxx.se/
 Source0:    %{name}-%{version}.tar.gz
-Patch2:     0101-curl-7.32.0-multilib.patch
-Patch5:     0104-curl-7.19.7-localhost6.patch
-Patch7:     0107-curl-7.21.4-libidn-valgrind.patch
+# patch making libcurl multilib ready
+Patch101:   0101-curl-7.32.0-multilib.patch
+# use localhost6 instead of ip6-localhost in the curl test-suite
+Patch104:   0104-curl-7.19.7-localhost6.patch
+# prevent valgrind from reporting false positives on x86_64
+Patch105:   0105-curl-7.63.0-lib1560-valgrind.patch
 
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(zlib)
@@ -56,16 +59,14 @@ use cURL's capabilities internally.
     --disable-gopher \
     --with-nghttp2
 
-make %{?_smp_mflags}
+%make_build
 
 %install
-rm -rf %{buildroot}
 %make_install
 
-install -d $RPM_BUILD_ROOT/%{_datadir}/aclocal
-install -m 644 docs/libcurl/libcurl.m4 $RPM_BUILD_ROOT/%{_datadir}/aclocal
+install -Dp -m 644 docs/libcurl/libcurl.m4 %{buildroot}/%{_datadir}/aclocal/
 # don't need curl's copy of the certs; use openssl's
-find ${RPM_BUILD_ROOT} -name ca-bundle.crt -exec rm -f '{}' \;
+find %{buildroot} -name ca-bundle.crt -exec rm -f '{}' \;
 
 %post -n libcurl -p /sbin/ldconfig
 
@@ -83,7 +84,7 @@ find ${RPM_BUILD_ROOT} -name ca-bundle.crt -exec rm -f '{}' \;
 %files -n libcurl-devel
 %defattr(-,root,root,-)
 %doc docs/examples/*.c docs/examples/Makefile.example docs/INTERNALS.md
-%doc docs/CONTRIBUTE.md docs/libcurl/ABI
+%doc docs/CONTRIBUTE.md docs/libcurl/ABI.md
 %{_bindir}/curl-config*
 %{_includedir}/curl
 %{_libdir}/*.so
