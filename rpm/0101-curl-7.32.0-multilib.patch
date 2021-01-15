@@ -31,7 +31,7 @@ index 150004d..95d0759 100644
 -        else
 -           CURLLIBDIR=""
 -        fi
--        if test "X@ENABLE_SHARED@" = "Xno" -o "X@REQUIRE_LIB_DEPS@" = "Xyes"; then
+-        if test "X@ENABLE_SHARED@" = "Xno"; then
 -          echo ${CURLLIBDIR}-lcurl @LIBCURL_LIBS@
 -        else
 -          echo ${CURLLIBDIR}-lcurl
@@ -85,7 +85,7 @@ index 2ba9c39..f8f8b00 100644
 +configure_options=@CONFIGURE_OPTIONS@
  
  Name: libcurl
- URL: https://curl.haxx.se/
+ URL: https://curl.se/
 -- 
-2.5.0
+2.26.2
 

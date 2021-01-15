@@ -1,22 +1,23 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.71.0
+Version:    7.74.0
 Release:    1
 License:    MIT
-URL:        https://curl.haxx.se/
+URL:        https://curl.se/
 Source0:    %{name}-%{version}.tar.gz
 # patch making libcurl multilib ready
 Patch101:   0101-curl-7.32.0-multilib.patch
 # use localhost6 instead of ip6-localhost in the curl test-suite
-Patch104:   0104-curl-7.19.7-localhost6.patch
+Patch104:   0104-curl-7.73.0-localhost6.patch
 # prevent valgrind from reporting false positives on x86_64
 Patch105:   0105-curl-7.63.0-lib1560-valgrind.patch
 
+BuildRequires:  autoconf
+BuildRequires:  libtool
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(libpsl)
 BuildRequires:  pkgconfig(libnghttp2)
-BuildRequires:  libtool
 Provides:   webclient
 
 %description
@@ -28,8 +29,6 @@ user authentication, FTP upload, HTTP post, and file transfer resume.
 
 %package -n libcurl
 Summary:  A library for getting files from web servers
-Requires(post): /sbin/ldconfig
-Requires(postun): /sbin/ldconfig
 
 %description -n libcurl
 This package provides a way for applications to use FTP, HTTP, Gopher and
@@ -38,7 +37,6 @@ other servers for getting files.
 %package -n libcurl-devel
 Summary:    Files needed for building applications with libcurl
 Requires:   libcurl = %{version}-%{release}
-Requires:   libidn-devel
 Provides:   curl-devel = %{version}-%{release}
 Obsoletes:   curl-devel < %{version}-%{release}
 
@@ -52,12 +50,20 @@ use cURL's capabilities internally.
 %autosetup -p1 -n %{name}-%{version}/%{name}
 
 %build
-./buildconf
-%configure --disable-static \
+%reconfigure --disable-static \
     --enable-ipv6 \
-    --with-libpsl \
+    --enable-symbol-hiding \
+    --enable-threaded-resolver \
     --disable-gopher \
-    --with-nghttp2
+    --disable-ldap \
+    --disable-ldaps \
+    --disable-manual \
+    --with-libpsl \
+    --with-nghttp2 \
+    --without-brotli \
+    --without-libidn2 \
+    --without-libmetalink \
+    --without-libssh
 
 %make_build
 
