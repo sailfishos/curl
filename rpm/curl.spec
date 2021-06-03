@@ -1,14 +1,12 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.75.0
+Version:    7.77.0
 Release:    1
 License:    MIT
 URL:        https://curl.se/
 Source0:    %{name}-%{version}.tar.gz
 # patch making libcurl multilib ready
 Patch101:   0101-curl-7.32.0-multilib.patch
-# use localhost6 instead of ip6-localhost in the curl test-suite
-Patch104:   0104-curl-7.73.0-localhost6.patch
 # prevent valgrind from reporting false positives on x86_64
 Patch105:   0105-curl-7.63.0-lib1560-valgrind.patch
 
@@ -60,6 +58,7 @@ use cURL's capabilities internally.
     --disable-manual \
     --with-libpsl \
     --with-nghttp2 \
+    --with-openssl \
     --without-brotli \
     --without-libidn2 \
     --without-libmetalink \
