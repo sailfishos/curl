@@ -16,7 +16,7 @@
 * Mon Jan 12 2015 John Brooks <john.brooks@jolla.com> - 7.40.0
 - Update to 7.40.0
 
-* Wed Nov 8 2014 Pasi Sjöholm <pasi.sjoholm@jollamobile.com> - 7.36.0-3
+* Sat Nov 8 2014 Pasi Sjöholm <pasi.sjoholm@jollamobile.com> - 7.36.0-3
 - Fix CVE-2014-3707
 
 * Wed Oct 29 2014 Pasi Sjöholm <pasi.sjoholm@jollamobile.com> - 7.36.0-2
@@ -39,7 +39,7 @@
 * Wed Aug  8 2012 Islam Amer <islam.amer@jollamobile.com> -7.25.0
 - Use ca-path instead of ca-bundle, fixes MER#490
 
-* Thu Mar 05 2012 Marko Saukko <sage@merproject.org> - 7.25.0
+* Mon Mar 05 2012 Marko Saukko <sage@merproject.org> - 7.25.0
 - Fixes MER#248: CVE-2012-0036 curl URL sanitization vulnerability
 
 * Fri Nov 11 2011 Marko Saukko <marko.saukko@cybercom.com> - 7.22.0

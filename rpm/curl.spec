@@ -1,6 +1,6 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.77.0
+Version:    7.78.0
 Release:    1
 License:    MIT
 URL:        https://curl.se/
@@ -61,7 +61,6 @@ use cURL's capabilities internally.
     --with-openssl \
     --without-brotli \
     --without-libidn2 \
-    --without-libmetalink \
     --without-libssh
 
 %make_build
