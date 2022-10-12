@@ -13,7 +13,7 @@ diff --git a/curl-config.in b/curl-config.in
 index 150004d..95d0759 100644
 --- a/curl-config.in
 +++ b/curl-config.in
-@@ -76,7 +76,7 @@ while test $# -gt 0; do
+@@ -78,7 +78,7 @@ while test $# -gt 0; do
          ;;
  
      --cc)
@@ -22,7 +22,7 @@ index 150004d..95d0759 100644
          ;;
  
      --prefix)
-@@ -155,32 +155,19 @@ while test $# -gt 0; do
+@@ -157,32 +157,19 @@ while test $# -gt 0; do
          ;;
  
      --libs)
@@ -44,7 +44,7 @@ index 150004d..95d0759 100644
  
      --static-libs)
 -        if test "X@ENABLE_STATIC@" != "Xno" ; then
--          echo @libdir@/libcurl.@libext@ @LDFLAGS@ @LIBCURL_LIBS@
+-          echo "@libdir@/libcurl.@libext@" @LDFLAGS@ @LIBCURL_LIBS@
 -        else
 -          echo "curl was built with static libraries disabled" >&2
 -          exit 1
@@ -63,7 +63,7 @@ diff --git a/docs/curl-config.1 b/docs/curl-config.1
 index 14a9d2b..ffcc004 100644
 --- a/docs/curl-config.1
 +++ b/docs/curl-config.1
-@@ -70,7 +70,9 @@ no, one or several names. If more than one name, they will appear
+@@ -72,7 +72,9 @@ no, one or several names. If more than one name, they will appear
  comma-separated. (Added in 7.58.0)
  .IP "--static-libs"
  Shows the complete set of libs and other linker options you will need in order
@@ -78,7 +78,7 @@ diff --git a/libcurl.pc.in b/libcurl.pc.in
 index 2ba9c39..f8f8b00 100644
 --- a/libcurl.pc.in
 +++ b/libcurl.pc.in
-@@ -29,6 +29,7 @@ libdir=@libdir@
+@@ -31,6 +31,7 @@ libdir=@libdir@
  includedir=@includedir@
  supported_protocols="@SUPPORT_PROTOCOLS@"
  supported_features="@SUPPORT_FEATURES@"

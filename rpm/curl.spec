@@ -1,14 +1,12 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.81.0
+Version:    7.85.0
 Release:    1
 License:    MIT
 URL:        https://curl.se/
 Source0:    %{name}-%{version}.tar.gz
 # patch making libcurl multilib ready
 Patch101:   0101-curl-7.32.0-multilib.patch
-# prevent valgrind from reporting false positives on x86_64
-Patch105:   0105-curl-7.63.0-lib1560-valgrind.patch
 
 BuildRequires:  autoconf
 BuildRequires:  libtool
