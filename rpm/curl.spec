@@ -1,6 +1,6 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    7.85.0
+Version:    7.87.0
 Release:    1
 License:    MIT
 URL:        https://curl.se/

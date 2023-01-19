@@ -63,7 +63,7 @@ diff --git a/docs/curl-config.1 b/docs/curl-config.1
 index 14a9d2b..ffcc004 100644
 --- a/docs/curl-config.1
 +++ b/docs/curl-config.1
-@@ -72,7 +72,9 @@ no, one or several names. If more than one name, they will appear
+@@ -71,7 +71,9 @@ no, one or several names. If more than one name, they will appear
  comma-separated. (Added in 7.58.0)
  .IP "--static-libs"
  Shows the complete set of libs and other linker options you will need in order
