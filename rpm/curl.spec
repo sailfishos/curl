@@ -1,6 +1,6 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    8.4.0
+Version:    8.9.1
 Release:    1
 License:    MIT
 URL:        https://curl.se/
@@ -75,16 +75,13 @@ find %{buildroot} -name ca-bundle.crt -exec rm -f '{}' \;
 %postun -n libcurl -p /sbin/ldconfig
 
 %files
-%defattr(-,root,root,-)
 %{_bindir}/curl
 
 %files -n libcurl
-%defattr(-,root,root,-)
 %license COPYING
 %{_libdir}/libcurl.so.*
 
 %files -n libcurl-devel
-%defattr(-,root,root,-)
 %doc docs/examples/*.c docs/examples/Makefile.example docs/INTERNALS.md
 %doc docs/CONTRIBUTE.md docs/libcurl/ABI.md
 %{_bindir}/curl-config*
@@ -94,4 +91,3 @@ find %{buildroot} -name ca-bundle.crt -exec rm -f '{}' \;
 %doc %{_mandir}/man1/*
 %doc %{_mandir}/man3/*
 %{_datadir}/aclocal/libcurl.m4
-
