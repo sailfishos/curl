@@ -1,6 +1,6 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    8.9.1
+Version:    8.16.0
 Release:    1
 License:    MIT
 URL:        https://curl.se/
@@ -76,6 +76,7 @@ find %{buildroot} -name ca-bundle.crt -exec rm -f '{}' \;
 
 %files
 %{_bindir}/curl
+%{_bindir}/wcurl
 
 %files -n libcurl
 %license COPYING

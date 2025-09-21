@@ -1,18 +1,19 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Kamil Dudka <kdudka@redhat.com>
-Date: Fri, 12 Apr 2013 12:04:05 +0200
+From: Jan Macku <jamacku@redhat.com>
+Date: Mon, 25 Aug 2025 10:41:12 +0200
 Subject: [PATCH] prevent multilib conflicts on the curl-config script
 
 ---
- curl-config.in | 23 +++++------------------
- libcurl.pc.in  |  1 +
- 2 files changed, 6 insertions(+), 18 deletions(-)
+ curl-config.in      | 23 +++++------------------
+ docs/curl-config.md |  4 +++-
+ libcurl.pc.in       |  1 +
+ 3 files changed, 9 insertions(+), 19 deletions(-)
 
 diff --git a/curl-config.in b/curl-config.in
-index 5d40bc39f..990685ceb 100644
+index ce23519..bb43ca8 100644
 --- a/curl-config.in
 +++ b/curl-config.in
-@@ -75,7 +75,7 @@ while test "$#" -gt 0; do
+@@ -74,7 +74,7 @@ while test "$#" -gt 0; do
      ;;
  
    --cc)
@@ -21,36 +22,36 @@ index 5d40bc39f..990685ceb 100644
      ;;
  
    --prefix)
-@@ -155,16 +155,7 @@ while test "$#" -gt 0; do
+@@ -149,16 +149,7 @@ while test "$#" -gt 0; do
      ;;
  
    --libs)
--    if test "X@libdir@" != "X/usr/lib" -a "X@libdir@" != "X/usr/lib64"; then
--      CURLLIBDIR="-L@libdir@ "
+-    if test "@libdir@" != '/usr/lib' -a "@libdir@" != '/usr/lib64'; then
+-      curllibdir="-L@libdir@ "
 -    else
--      CURLLIBDIR=""
+-      curllibdir=''
 -    fi
--    if test "X@ENABLE_SHARED@" = "Xno"; then
--      echo "${CURLLIBDIR}-lcurl @LIBCURL_LIBS@"
+-    if test '@ENABLE_SHARED@' = 'no'; then
+-      echo "${curllibdir}-lcurl @LIBCURL_PC_LIBS_PRIVATE@"
 -    else
--      echo "${CURLLIBDIR}-lcurl"
+-      echo "${curllibdir}-lcurl"
 -    fi
-+    echo -lcurl
++    echo '-lcurl'
      ;;
  
    --ssl-backends)
-@@ -172,16 +163,12 @@ while test "$#" -gt 0; do
+@@ -166,16 +157,12 @@ while test "$#" -gt 0; do
      ;;
  
    --static-libs)
--    if test "X@ENABLE_STATIC@" != "Xno" ; then
--      echo "@libdir@/libcurl.@libext@" @LDFLAGS@ @LIBCURL_LIBS@
+-    if test '@ENABLE_STATIC@' != 'no'; then
+-      echo "@libdir@/libcurl.@libext@ @LIBCURL_PC_LDFLAGS_PRIVATE@ @LIBCURL_PC_LIBS_PRIVATE@"
 -    else
 -      echo 'curl was built with static libraries disabled' >&2
 -      exit 1
 -    fi
-+    echo "curl was built with static libraries disabled" >&2
-+    echo 1
++    echo 'curl was built with static libraries disabled' >&2
++    exit 1
      ;;
  
    --configure)
@@ -59,8 +60,23 @@ index 5d40bc39f..990685ceb 100644
      ;;
  
    *)
+diff --git a/docs/curl-config.md b/docs/curl-config.md
+index 12ad245..fa0e03d 100644
+--- a/docs/curl-config.md
++++ b/docs/curl-config.md
+@@ -87,7 +87,9 @@ no, one or several names. If more than one name, they appear comma-separated.
+ ## `--static-libs`
+ 
+ Shows the complete set of libs and other linker options you need in order to
+-link your application with libcurl statically. (Added in 7.17.1)
++link your application with libcurl statically. Note that Fedora/RHEL libcurl
++packages do not provide any static libraries, thus cannot be linked statically.
++(Added in 7.17.1)
+ 
+ ## `--version`
+ 
 diff --git a/libcurl.pc.in b/libcurl.pc.in
-index 0eb180485..4c802f7d0 100644
+index c0ba524..f3645e1 100644
 --- a/libcurl.pc.in
 +++ b/libcurl.pc.in
 @@ -28,6 +28,7 @@ libdir=@libdir@
