@@ -1,9 +1,9 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    8.16.0
+Version:    8.18.0
 Release:    1
 License:    MIT
-URL:        https://curl.se/
+URL:        https://github.com/sailfishos/curl
 Source0:    %{name}-%{version}.tar.gz
 # patch making libcurl multilib ready
 Patch101:   0101-curl-7.32.0-multilib.patch
@@ -54,6 +54,8 @@ use cURL's capabilities internally.
     --disable-ldap \
     --disable-ldaps \
     --disable-manual \
+    --with-ca-bundle=%{_sysconfdir}/pki/tls/certs/ca-bundle.crt \
+    --with-ca-path=%{_sysconfdir}/ssl/certs \
     --with-libpsl \
     --with-nghttp2 \
     --with-openssl \
