@@ -54,6 +54,8 @@ use cURL's capabilities internally.
     --disable-ldap \
     --disable-ldaps \
     --disable-manual \
+    --with-ca-bundle=%{_sysconfdir}/pki/tls/certs/ca-bundle.crt \
+    --with-ca-path=%{_sysconfdir}/ssl/certs \
     --with-libpsl \
     --with-nghttp2 \
     --with-openssl \
