@@ -1,6 +1,6 @@
 Name:       curl
 Summary:    A utility for getting files from remote servers (FTP, HTTP, and others)
-Version:    8.21.0
+Version:    8.22.0
 Release:    1
 License:    MIT
 URL:        https://github.com/sailfishos/curl
@@ -85,7 +85,7 @@ find %{buildroot} -name ca-bundle.crt -exec rm -f '{}' \;
 %{_libdir}/libcurl.so.*
 
 %files -n libcurl-devel
-%doc docs/examples/*.c docs/examples/Makefile.example docs/INTERNALS.md
+%doc docs/examples/*.c docs/examples/Makefile.example docs/DEPENDENCIES.md
 %doc docs/CONTRIBUTE.md docs/libcurl/ABI.md
 %{_bindir}/curl-config*
 %{_includedir}/curl
